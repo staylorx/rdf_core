@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- **Documentation**: root `BACKLOG.md` created. It carries open/pending items
+  only — the build and analysis problems found by the Windows-lane audit
+  (Windows 11, Dart SDK 3.13.1, HEAD `0b34b56`) and every divergence from the
+  `staylorx/dart-flutter-bible` standard, the latter flagged for later review.
+
+### Notes
+
+- Decisions recorded by this pass:
+  - `BACKLOG.md` holds open/pending items only; anything decided and done is
+    recorded here instead.
+  - Every divergence from `staylorx/dart-flutter-bible` is recorded in
+    `BACKLOG.md` verbatim in the required
+    `Deviation: <path> - <what diverges and why>` form and left unfixed — the
+    bible itself may be the side that is wrong on several of them.
+  - No source file was changed by this pass. Generated blobs (`doc/api/**`,
+    `pubspec.lock`) were read only, never hand-edited.
+- Audit record for the working version `0.9.18-dev` (not a cut release), HEAD
+  `0b34b56`, Windows lane: `dart pub get` exit 0; `dart analyze` exit 0, "No
+  issues found!"; `dart test` exit 0, 725/725 passing with 0 skips;
+  `dart format --output=none --set-exit-if-changed .` exit 1 (two unformatted
+  files — BACKLOG.md B1); `dart pub publish --dry-run` exit 65 on a valid 743 KB
+  archive (1 warning + 1 hint — BACKLOG.md B2/B3). No build error and no broken
+  dependency was found.
+
 ## [0.9.17] - 2025-09-24
 
 ### Changed
